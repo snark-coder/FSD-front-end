@@ -5,27 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biryani - Food Delivery</title>
     <link rel="stylesheet" href="biryani.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="biryani.js"></script>
 </head>
 <body>
     <header>
         <div class="navbar">
-            <img src="https://www.creativefabrica.com/wp-content/uploads/2020/02/10/Delivery-Logo-Graphics-1-12.jpg" alt="Logo" class="logo">
+            <a href="index.html"><img src="https://www.creativefabrica.com/wp-content/uploads/2020/02/10/Delivery-Logo-Graphics-1-12.jpg" alt="Logo" class="logo"></a>
             <nav>
                 <a href="#">Other</a>
                 <a href="#">Search</a>
                 <a href="#">Offers</a>
                 <a href="#">Help</a>
                 <a href="#">Sign In</a>
-                <a href="#">Cart (0)</a>
+                <a >Cart (<span id="cart_count">0</span>)</a>
             </nav>
         </div>
     </header>
 
     <!-- Filter Options Moved Outside -->
     <div class="filter-options">
-        <button>Filter</button>
-        <button>Sort By</button>
-        <button>Pure veg</button>
+     
+        <button class="ratingSort" onclick="sortByRating(4.0)">Rating > 4.0</button>
+        <button onclick="displayAll()">All Restaurants</button>
         <button>Less than 30 mins</button>
         <button>Rs. 300–Rs. 600</button>
         <button>Less than Rs. 300</button>
@@ -39,16 +41,21 @@
 
     <section class="restaurant-list">
         <!-- Restaurant Items -->
-        <div class="restaurant-item">
+        
+            <div class="restaurant-item" id="balaji" rating="4.2">
+                
             <img src="https://www.rvcj.com/wp-content/uploads/2019/07/Hydrebadi-Biryani.jpg" alt="Balaji Family Dhaba">
-            <div class="restaurant-info">
-                <h3>Balaji Family Dhaba</h3>
-                <p><span class="rating">4.2</span> • 30–35 mins</p>
-                <p>Chinese, Attapur</p>
+            <a href="balaji.html">
+                <div class="restaurant-info">
+                    <h3>Balaji Family Dhaba</h3>
+                    <p><span class="rating">4.2</span> • 30–35 mins</p>
+                    <p>Chinese, Attapur</p>
+                </div>
+            </a>
             </div>
-        </div>
+        
 
-        <div class="restaurant-item">
+        <div class="restaurant-item" rating="4.3">
             <img src="https://www.mistay.in/travel-blog/content/images/2020/07/biriyani-end-2.jpg" alt="Kinara Grand">
             <div class="restaurant-info">
                 <h3>Kinara Grand</h3>
@@ -58,7 +65,7 @@
             </div>
         </div>
 
-        <div class="restaurant-item">
+        <div class="restaurant-item" rating="4.2">
             <img src="https://newsmeter.in/h-upload/2023/01/28/337952-whatsapp-image-2023-01-28-at-94404-am.jpg" alt="Dine Hill">
             <div class="restaurant-info">
                 <h3>Dine Hill</h3>
@@ -67,18 +74,18 @@
             </div>
         </div>
 
-        <div class="restaurant-item">
+        <div class="restaurant-item" rating="3.2">
             <img src="https://img1.wsimg.com/isteam/ip/5aadb33a-ca4a-4890-b704-037c5767254e/Briyani.png" alt="Shree Golden Palace Restaurant">
             <div class="restaurant-info">
                 <h3>Shree Golden Palace Restaurant</h3>
-                <p><span class="rating">4.2</span> • 35–40 mins</p>
+                <p><span class="rating">3.2</span> • 35–40 mins</p>
                 <p>Biryani, South Indian, Indian, North Indian, Mehdipatnam</p>
                 <p>40% OFF UPTO ₹80</p>
             </div>
         </div>
 
         <!-- Add 5 more restaurant items -->
-        <div class="restaurant-item">
+        <div class="restaurant-item" rating="4.5">
             <img src="https://khappa.pk/wp-content/uploads/2018/11/biyani.jpeg" alt="Paradise Biryani">
             <div class="restaurant-info">
                 <h3>Paradise Biryani</h3>
@@ -87,25 +94,25 @@
             </div>
         </div>
 
-        <div class="restaurant-item">
+        <div class="restaurant-item" rating="3">
             <img src="https://www.bloggbuzz.com/wp-content/uploads/2021/05/Lucknowi-Biryani.png" alt="Bawarchi">
             <div class="restaurant-info">
                 <h3>Bawarchi</h3>
-                <p><span class="rating">4.4</span> • 20–30 mins</p>
+                <p><span class="rating">3</span> • 20–30 mins</p>
                 <p>Biryani, Indian, RTC X Roads</p>
             </div>
         </div>
 
-        <div class="restaurant-item">
+        <div class="restaurant-item" rating="3.3">
             <img src="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Shaheen_Ali/LUCKNOWI_MURG_BIRYANI__AWADHI_CHICKEN_BIRYANI.jpg" alt="Shadab Restaurant">
             <div class="restaurant-info">
                 <h3>Shadab Restaurant</h3>
-                <p><span class="rating">4.3</span> • 40–45 mins</p>
+                <p><span class="rating">3.3</span> • 40–45 mins</p>
                 <p>Biryani, Mughlai, Charminar</p>
             </div>
         </div>
 
-        <div class="restaurant-item">
+        <div class="restaurant-item" rating="4.1">
             <img src="https://i.ytimg.com/vi/Do7ZdUodDdw/maxresdefault.jpg" alt="Hotel Sohail">
             <div class="restaurant-info">
                 <h3>Hotel Sohail</h3>
@@ -114,7 +121,7 @@
             </div>
         </div>
 
-        <div class="restaurant-item">
+        <div class="restaurant-item" rating="4.3">
             <img src="https://i.pinimg.com/originals/2c/ca/d5/2ccad553273808b29d4b05573eb5b7cb.jpg" alt="Cafe Bahar">
             <div class="restaurant-info">
                 <h3>Cafe Bahar</h3>
@@ -123,6 +130,11 @@
             </div>
         </div>
     </section>
+
+    <footer>
+        <br>
+        <br>
+    </footer>
 
 </body>
 </html>
