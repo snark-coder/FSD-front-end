@@ -10,8 +10,6 @@ function updateHtmlCart(){
 }
 
 function addToCart(){
-    
-    const itemsInCart = document.getElementById("balaji")
     cartItemCount++;
     localStorage.setItem("cartItemCount", cartItemCount);
 
@@ -19,6 +17,6 @@ function addToCart(){
     updateHtmlCart(); 
 }
 
-localStorage.removeItem("cartItemCount", cartItemCount);
+localStorage.removeItem("cartItemCount");
 
 document.addEventListener("DOMContentLoaded", updateHtmlCart);
